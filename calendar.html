@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App - Calendar</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/calendar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo-container">
+                <div class="logo">
+                    <div class="logo-icon">T</div>
+                    <span class="logo-text">To-do</span>
+                </div>
+            </div>
+
+            <div class="nav-items">
+                <a href="index.html" class="nav-item" data-section="dashboard">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="tasks.html" class="nav-item" data-section="tasks">
+                    <i class="fas fa-tasks"></i>
+                    <span>My Tasks</span>
+                </a>
+                <a href="calendar.html" class="nav-item active" data-section="calendar">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Calendar</span>
+                </a>
+                <a href="analytics.html" class="nav-item" data-section="analytics">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Analytics</span>
+                </a>
+                <a href="settings.html" class="nav-item" data-section="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </div>
+
+            <div class="user-profile">
+                <div class="profile-info">
+                    <div class="profile-avatar">
+                        <img src="img/avatar-placeholder.jpg" alt="Profile">
+                    </div>
+                    <div class="profile-details">
+                        <span class="profile-name" id="username">Moemen</span>
+                        <span class="profile-email" id="user-email">user@example.com</span>
+                    </div>
+                </div>
+                <a href="sign-in.html" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <div class="header-left">
+                    <h1>Calendar</h1>
+                    <p class="welcome-message">View and manage your tasks on the calendar.</p>
+                </div>
+                <div class="header-actions">
+                    <button class="add-new-btn">
+                        <i class="fas fa-plus"></i>
+                        <span>Add New Task</span>
+                    </button>
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">0</span>
+                        <div class="notification-dropdown">
+                            <div class="notification-header">
+                                <h3>Notifications</h3>
+                                <button class="mark-all-read">Mark all as read</button>
+                            </div>
+                            <div class="notification-list">
+                                <!-- Notifications will be loaded dynamically -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="calendar-section">
+                <div class="calendar-header">
+                    <div class="calendar-controls">
+                        <button class="prev-month">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <h2 class="current-month">March 2024</h2>
+                        <button class="next-month">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="view-options">
+                        <button class="view-option active" data-view="month">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Month</span>
+                        </button>
+                        <button class="view-option" data-view="week">
+                            <i class="fas fa-calendar-week"></i>
+                            <span>Week</span>
+                        </button>
+                        <button class="view-option" data-view="day">
+                            <i class="fas fa-calendar-day"></i>
+                            <span>Day</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="calendar-container">
+                    <div class="calendar-grid">
+                        <div class="calendar-weekdays">
+                            <div>Sun</div>
+                            <div>Mon</div>
+                            <div>Tue</div>
+                            <div>Wed</div>
+                            <div>Thu</div>
+                            <div>Fri</div>
+                            <div>Sat</div>
+                        </div>
+                        <div class="calendar-days">
+                            <!-- Calendar days will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/calendar.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html> 

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App - Settings</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/settings.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo-container">
+                <div class="logo">
+                    <div class="logo-icon">T</div>
+                    <span class="logo-text">To-do</span>
+                </div>
+            </div>
+
+            <div class="nav-items">
+                <a href="index.html" class="nav-item" data-section="dashboard">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="tasks.html" class="nav-item" data-section="tasks">
+                    <i class="fas fa-tasks"></i>
+                    <span>My Tasks</span>
+                </a>
+                <a href="calendar.html" class="nav-item" data-section="calendar">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Calendar</span>
+                </a>
+                <a href="analytics.html" class="nav-item" data-section="analytics">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Analytics</span>
+                </a>
+                <a href="settings.html" class="nav-item active" data-section="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </div>
+
+            <div class="user-profile">
+                <div class="profile-info">
+                    <div class="profile-avatar">
+                        <img src="img/avatar-placeholder.jpg" alt="Profile">
+                    </div>
+                    <div class="profile-details">
+                        <span class="profile-name" id="username">Moemen</span>
+                        <span class="profile-email" id="user-email">user@example.com</span>
+                    </div>
+                </div>
+                <a href="sign-in.html" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <div class="header-left">
+                    <h1>Settings</h1>
+                    <p class="welcome-message">Customize your app preferences and account settings.</p>
+                </div>
+                <div class="header-actions">
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">0</span>
+                        <div class="notification-dropdown">
+                            <div class="notification-header">
+                                <h3>Notifications</h3>
+                                <button class="mark-all-read">Mark all as read</button>
+                            </div>
+                            <div class="notification-list">
+                                <!-- Notifications will be loaded dynamically -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <div class="settings-grid">
+                    <!-- Account Settings -->
+                    <div class="settings-card">
+                        <div class="card-header">
+                            <h3>Account Settings</h3>
+                        </div>
+                        <div class="settings-form">
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" id="username-input" value="Moemen">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" value="user@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="current-password">Current Password</label>
+                                <input type="password" id="current-password">
+                            </div>
+                            <div class="form-group">
+                                <label for="new-password">New Password</label>
+                                <input type="password" id="new-password">
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm-password">Confirm New Password</label>
+                                <input type="password" id="confirm-password">
+                            </div>
+                            <button class="save-btn">Save Changes</button>
+                        </div>
+                    </div>
+
+                    <!-- App Preferences -->
+                    <div class="settings-card">
+                        <div class="card-header">
+                            <h3>App Preferences</h3>
+                        </div>
+                        <div class="settings-form">
+                            <div class="form-group">
+                                <label>Theme</label>
+                                <div class="theme-options">
+                                    <button class="theme-option active" data-theme="light">
+                                        <i class="fas fa-sun"></i>
+                                        <span>Light</span>
+                                    </button>
+                                    <button class="theme-option" data-theme="dark">
+                                        <i class="fas fa-moon"></i>
+                                        <span>Dark</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Notifications</label>
+                                <div class="toggle-group">
+                                    <div class="toggle-item">
+                                        <span>Email Notifications</span>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="toggle-item">
+                                        <span>Push Notifications</span>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="toggle-item">
+                                        <span>Task Reminders</span>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Default View</label>
+                                <select>
+                                    <option value="list">List View</option>
+                                    <option value="grid">Grid View</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data Management -->
+                    <div class="settings-card">
+                        <div class="card-header">
+                            <h3>Data Management</h3>
+                        </div>
+                        <div class="settings-form">
+                            <div class="form-group">
+                                <label>Export Data</label>
+                                <button class="export-btn">
+                                    <i class="fas fa-download"></i>
+                                    <span>Export All Data</span>
+                                </button>
+                            </div>
+                            <div class="form-group">
+                                <label>Import Data</label>
+                                <button class="import-btn">
+                                    <i class="fas fa-upload"></i>
+                                    <span>Import Data</span>
+                                </button>
+                            </div>
+                            <div class="form-group">
+                                <label>Clear Data</label>
+                                <button class="clear-btn">
+                                    <i class="fas fa-trash"></i>
+                                    <span>Clear All Data</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Account Actions -->
+                    <div class="settings-card">
+                        <div class="card-header">
+                            <h3>Account Actions</h3>
+                        </div>
+                        <div class="settings-form">
+                            <div class="form-group">
+                                <label>Delete Account</label>
+                                <button class="delete-account-btn">
+                                    <i class="fas fa-user-slash"></i>
+                                    <span>Delete My Account</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/settings.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

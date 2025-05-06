@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App - Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo-container">
+                <div class="logo">
+                    <div class="logo-icon">T</div>
+                    <span class="logo-text">To-do</span>
+                </div>
+            </div>
+
+            <div class="nav-items">
+                <a href="index.html" class="nav-item active" data-section="dashboard">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="tasks.html" class="nav-item" data-section="tasks">
+                    <i class="fas fa-tasks"></i>
+                    <span>My Tasks</span>
+                </a>
+                <a href="calendar.html" class="nav-item" data-section="calendar">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Calendar</span>
+                </a>
+                <a href="analytics.html" class="nav-item" data-section="analytics">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Analytics</span>
+                </a>
+                <a href="settings.html" class="nav-item" data-section="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </div>
+
+            <div class="user-profile">
+                <div class="profile-info">
+                    <div class="profile-avatar">
+                        <img src="img/avatar-placeholder.jpg" alt="Profile">
+                    </div>
+                    <div class="profile-details">
+                        <span class="profile-name" id="username">Moemen</span>
+                        <span class="profile-email" id="user-email">user@example.com</span>
+                    </div>
+                </div>
+                <a href="sign-in.html" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Hero Section -->
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1>Welcome back, <span id="hero-username">Moemen</span>!</h1>
+                    <p>Here's what's happening with your tasks today.</p>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <i class="fas fa-check-circle"></i>
+                            <div class="stat-info">
+                                <span class="stat-value" id="hero-completed">0</span>
+                                <span class="stat-label">Tasks Completed</span>
+                            </div>
+                        </div>
+                        <div class="hero-stat">
+                            <i class="fas fa-clock"></i>
+                            <div class="stat-info">
+                                <span class="stat-value" id="hero-pending">0</span>
+                                <span class="stat-label">Tasks Pending</span>
+                            </div>
+                        </div>
+                        <div class="hero-stat">
+                            <i class="fas fa-calendar-check"></i>
+                            <div class="stat-info">
+                                <span class="stat-value" id="hero-upcoming">0</span>
+                                <span class="stat-label">Upcoming Tasks</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxAQDxIPEBMQEBAREBIQEBAQEBEPDxEQFRUWGBURFhUYHSggGBolGxUVITEhJSkrLi4uFx8zODMsNygtLisBCgoKDg0OGxAQGy0lHx8tMC0tLS8wLS0tKzItLS0vListMC0tLS0tLy0tLTUuLS0rLS4tLTEtLy8tMC0tLTUvLf/AABEIALQBFwMBEQACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAAAQIDBAYFB//EAEYQAAIBAgEHCAYFCwQDAQAAAAABAgMRBAUSEyExUaEGFDJBYXGBkSJSYpLB0QcjU5OxFhczQlRyg6LD0uFEgrLwJHPxFf/EABoBAQACAwEAAAAAAAAAAAAAAAABAgMEBQb/xAA4EQEAAQMBBQUGBgEDBQAAAAAAAQIDEQQFEiExQRRRkaGxUmFxgcHRExUiMkLwYtLh8SMzU5Ki/9oADAMBAAIRAxEAPwD7MAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACG7AY3JgQBZTYFpVIpXbUV1tuy82I48hoVMvYOLs8Th0//AHQ+ZlixcnlTPgjMNvC4ulVV6VSnUW+nOM1wMdVM084wlmIAAAAAAAAAAAAAAAAAAAAAAAAArnq19wE34gL7ezaBKYAA2BibAgDzcsZdw+EX100pWuqcfSqP/atne7IzWtPcu/tj59EZcNlfl/XqXjh4xoR9Z2qVWvHUvJ9507Wz6I418fRXecljMZVrPOq1J1HvnNz8r7Ddpopp4UxhDXZKE0K06clOnKUJrZKEnGS7mtZFURVGJS+lch+Wkq81hcVrqvVSqpW0jSvmyS/WstvXbz5Or0kURv0cusLRLute6XkznrGv1ZeTAa/Vl5MBr9WXkwGv1ZeTAX3prvAkAAAAAAAAAAAAAAAAAjXbt7wDb8OsBr18O0CUAApUfUBr4rEwpQdSpKMIR2yk7Jf57C1NM1TimMyOB5QcuZzvTwl4R2OtJfWS/dX6q7Xr7jq2NBEcbnH3KTV3OKqzcm5SblJu7lJtyb3tvadGIxGIVUYFGBVkCjCX0L6HsPF1cTUaTnCFOMW9sVJzzrd+avI5u0apxTC1L6kcpZpZSypSw8c6rK1+jFa5S7ka+o1NuxTmufvLNY09y9ViiHLZQ5eqnZxoOSbt6VXMfkovcV2VqY196q1EbuIznn1iOXz72fV6KdPRFcznM4ehkPlrhsTJU3nUaktUY1LZsnujJdfY7HWvaK5bjPOGhFUS6Y01mOuvRfdcQMCAAAAAAAAAAAAAAAAAK21bfHcBlpQu7vqAzZi3AMxbgGYtwEaKO5AauNyTh69tNSp1M3oqcVJLtSZei5XR+2cDV/JfAfs1D7uJftN72pRiEfktgP2XD/dxHab3tSYg/JbAfsuH+6iO03vakxCPyVwH7Lh/uojtN72pMQfkpk/9lw/3UR2m97UmIPyUyf8AsuH+6iO0XvakxDaybknD4dz0FKnSzs3O0cVHOte17d78yldyuvG9OUt2rNRi5PUoptvsWtmOZiIzKYiZnEPnGEhUyli5OTcY9Jv1KSeqK7dfFs8tRbr1+omZ5ekdz1FyaNBp4iOfrPe7WnyewigoOjTmt84qcn23Z6TTWKNNObUYnlnr4vOXtRcvfvnPu6OT5V8jaNNc4oJxgv0lJNuNm+lF7UtetfgbGt2rqbOmqmiM1d/dHfjr/cr6Kxbu3opr5evudJyRyi69C0nedN5jfW1b0ZPw1eBzNmamq/a/VzjhLNtDTxZu/p5TxezW6Mu5nRhoNdAAAAAAAAAAAAAAAAAFdVnq1dasBmpN67L4AXzpbl5gM6W5eYDOluXmBjlWknbNXmBHOJeqveAc4l6q94BziXqr3gHOJeqveAc4l6q94BziXqr3gHOJeqveAtQqNt3VtnXcnoKZUpudCrCPSlSnFd7i0jFepmq3VEdYllsVRTdpqnpMeriPo5xUVWq03qlOCcb9ea3dfzLyOHseqKblVM85j0d/bduZt01RyiZz8/8Ah9BPQPNvJ5U4iMMHWcv1oOEVvlLUvn4Gnr64p09WesY8W5oKJr1FGOk58HifR3TeZXn+q5Qiu+Kk3/yRztiUTFNdXfjyz92/tqqN6in4/T7OurdGXczuw4jXQAAAAAAAAAAAAAAAABGu3Vfq3AZsP1gedismU5TlJyqpt3aji69NeEYysvAw1WKapzmfGfu2aNXXRTFMRTw/xpnzmE0MjUbpqeIbTTtzvESV+1Z+tERp6Y6z4z91p1lyYxin/wBafs9YztRgt6fj8AJnUadtXlJ/gBXTPs92YEuq/Z92QFouT1+j5MCfT9niBkAx1lqAx4fa/ATyGdgfPuU/JytQrPFYVScXLSNU+nSntbSW2O3uODrNFXbr/FtfHh0/2el0G0Ld23+Bf58uPKY+6mH5e14xtOnSnJas67h5r/4Vo2tciMVUxM+C9ewrUzmmqYju5tR1MZlSqtXoJ9ScaFPe2+t+bMM9o11cd3lDLu6bZ9E98+M/3wfRMkZPjhqMaMNkdre2Untkz0Gns02bcUU9HmNRfqv3Jrq6tmt0ZdzM0MLXQAAAAAAAAAAAAAAAABGbqtr+IGbD9YGOpjLNrR1XbrUE0+53NSvV7lU0/h1z74jh6stNrMZ3o8WyjbYkga8n6T7wLaR7uDAaSW7gwGke7gwGke7gwGklu4MBpJbuDA1KuU6WkVGVSmqj2U85Z7vs1fAyRarmneiJx3oy2cPtl4FJ5JZHV9mXkQJjK+uzXetYGrVw9GTzpUYylvlSjJ+bKTaomczEeDJTduUximqYj4tmNlFWi0uqKSVvAtERHCFJmZ5o03sz8iULVujLuf4CBroAAAAAAAAAAAAAAAAA0sr5ThhaMqtTq1Rits5vZFf96mZbNmq7XFNKJnDx+QmVauKqYqpVf2SjFdCEfrNSXx6zc11ii1TRTT7/AJ8laZy6mdFt39Hxvf8AE5y7JTTWp27LXAuBhXT8fgBmAAAAACGtQHz7HclsTLFTks1wqVXPSuWuKbva2262K25HZta+1TaiJ5xGMKTTOXbxk4u617zjLsnOOx+aAc49l8CQ5x7L4AOcey+ADnHsvgQKzquStay6yRUgAAAAAAAAAAAAAAAAHzfl7j3UxWiXQopRt1Z8knJ/gvA7uz7W7a3utXoxVzxet9Fv+p/g/wBQwbU/h8/omh1GJwNSU5NYjEwTeqMOb5sexZ0G/M4VVmqZzvzHh9m7RqKKaYibdM++d76VFLJlS6fO8S7NNxfN7PsdqZEWavbny+y06miYx+FT/wDX+p6iNhqMS6fj8AK15ST1fjYDFpJ7v5v8ANJPd/N/gC+e97AZ73sBnvewM1Xo+QCnBW2AS1Hs4DJhFo+zwIzCcSmUFbYiUNWTtYCyAAAAAAAAAAAAAAAAAAAD5Dl9t4vEX26ep/yZ6bT/APap+EMM83WfRb/qf4P9Q5+1P4fP6LUOxq4uhGTUpU1JPWna9zz9eu09FU01VxEx0y2Ys3KozENqMUtiS7kbTEsBhXT8fgBFWbT1AY9JL/rAlVHvAaR7wGke8BpHvAzVej5ATT6IHnY7JWHqTc6lKnOTSvKVNyertMFemtVzvVUxMti3qr1undoqmIY6eQcG9ToUr9f1dlxK9jsexC/b9T/5J8XrNWVuw2Wo06nUAg+oC4AAAAAAAAAAAAAAAAAA+ZcuME6WLlK3o1kqkX1X2SXfdX/3I7+gub1mI7uH2Yqo4vb+i3/U/wAH+oa21P4fP6JodtOMr6s7wlGxycMjJTb6013tO4FwMK6fj8AMoE2AWAWA1quMjGTjZu3cBTn8dz4AbFV+j5ARSmra2BfPW9AM9b0BEpq21AalQCgGWLAkAAAAAAAAAAAAItdqOy/4AZOar1pcPkBHNV60uHyAnmq9aXD5Aefljk9RxUFCq5+i86MouKlF9dtXWZrN+uzOaUTGVMhcm6WDz9FOq9Jm52e4vo3tayXrMtf1Nd7G9jgRGHraL2pcDXSnRdr4ATCW1PqAxN2k32/AC+mXbwAnTLt4ANMu3gBGmXbwAxzUG7uN2BChT9UC9SomrAVp0c5XbevZYC3Nlvlw+QDmy3y4fIBzZb5cPkBDwq3y4fIDWqQzZZu3VdAWpvWBkAAAAAAAAAAAACKf6RdzA20AYEgQtoEVJJJt6lbW3qSHI5pjJPYMjHKvFTUL+k1qWvt+T8mVmqM4W3ZxnoU+lLvX4Iuqra8/H4EC8pRWp5q8gI0kN8eADSQ3x4ANJDfHgA0kN8eAF0l2AY68VYC2H6Ee4DIBwn0k5Sr4ephZUak6eqrJqMmoycXTtnLY9r27zp7PtUXIqiqM8vqpVOHcUp3jFva4p8DmTwnC64Gjiv0i/c+LJjkIhtIGQAAAAAAAAAAAAIp/pF3MDF9dVbSehgutRzqknuWerK2rqd76mYJ3654cI8/Ph6tj/p0Rx/VPl5cfRWcq9HbavF9ea4VU7ar5qale1tkRM3KP8o8/t6ERauf4z4x5zmPGV1leiunLRPdVjKk/5kk/AntFHWcfHh6nZbv8Yz8MT6fVH/69Jv0M6re6joouopNWurrUtq1uy17R+PR04/DidmuR+7EfGcf35cUOlVra6l6ME1JQTUqrad05y1pa+pX2beojdrr/AHcI7uvz+0ePQ3rdv9v6p7+ny6/OcfDqssi4dbKcYvZn070qj75ws35iNNajlH0nyO1XutUz7p4x4Tllw+T6VN3jGz25zblJvZdybbbs7XL02qKeMQpXerr4TP8AfkzU+lLvX4IysSF0/H4EC8oX62u6wEaL2pcPkA0Xa+HyAtGFu3vAmwEgY8R0QGH6Ee4Dx+U+U54dU3BpZzle6ve1tXE5G1tXd08UTb6zOW/oNNTemqKujkfpPqZ6wc9mdSqyt36NnqtjV79uau+Inylz71O7VNPdLPysqyhjsJKLcZKlRs1t6crnkdpTMauiY93q9LsqiK9Fcpq5Zn0h9DO2820cV+kX7nxZMcgprrIFwAAAAAAAAAAAAin+kXcwNtAGAsBCirt21vr6yMGUyJEgQBjh0pd6/BAVvafj8AMuet68wGet68wGet68wGet68wGet68wGet68wMdeSsBbD9CPcJHP8ALPJlfERpKhFScXLO9KMbJpW2vsOXtPS16immKI5OpsvU2rNVX4k4zh5PLLk7isTTwkaMFJ0qMoVPThG0mqe96+iz0Gy71Fi3u3J6R5Q5mo/XcmaeUzLPykyDiK2Jw9SnBSjCnSjN58VZxm29TevUee12mu3b9NdMcI+7tbO1tmzp6qK54zM9PdDszquI0cUvrE/ZX4snoLogAAAAAAAAAAAAAiS8HvAZ0/W4IBnT9bhEBnT9bhEBnT9bhEBGU+uV/BAWdVrrflECNM978ogWjXS38AKSqJtsDDiMQ4xcowlUa/Ui4KT7s5pcSaYiZxM4HMYjl/QpycKlDFQnHbGUKcZLwczep2fXVGYqjHzV3oYvzj4X7LE+7S/vJ/LrnfHmb0H5yML9lifdpf3j8uud8eZvQr+cnC/ZYn3aP94/LrnfHmb0H5y8J9jifdo/3j8uud8eZvQq/pMwn2OK92j/AHkfl1zvjzN56GTvpCyfUhac6tBrVapTbbW9OGcilehuxPCMpzDajy3ybdf+TJ9mjrO/8hTsd7uMw9zTw9efk/ka+EsqxUN78n8hgTzqG9+TGBgnLOlnJdVlfVftAsQAAAAAAAAAAAAAAAAAAAAUqICgAAAA0sqZJoYmObWhGdujLZOP7slrRltXq7c5plGHCZa5BVoXlhpaaP2cmo1V3PZLgdO1tCmrhXw9Fd1x+JoTpycKkZQktsZpxkvBm/TVFUZiUMLJQqyBRhKGQOm+j/IrxWMjOS+poNVaj6nJdCHi9fdFmrrLsW7eOsph9jzUcNdFlZa/HeAzdfwAW1bfECwAAAAAAAAAAAAAAAAAAAADQGKSsBAAAAAAa2PyfRrxzK1OFRdWcrtdz2rwL0XK6JzTODDk8pfRzSnd4epOk/UqLSQ8HqkvG5vW9o1RwrjKu65rG8hMfT6NONZb6VSL4Sszbp11mrnOPijdl5VTk5jk7PDYi/ZSm15pGXtFqf5QjD1MkcgsbXktJHm1PrlUs527IJ387GG5rbdMcOMpxL6nkXJNLCUVQoq0VrlJ65zl1yk+tnIu3arlW9Uu3jGIsBNgIzVsAkAAAAAAAAAAAAAAAAAAAAAABVwAjMAZgBQAlQQFkgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB/9k=" alt="Dashboard Illustration">
+                </div>
+            </div>
+
+            <!-- Header -->
+            <div class="header">
+                <div class="header-left">
+                    <h1>Dashboard</h1>
+                    <p class="welcome-message">Welcome back! Here's what's happening today.</p>
+                </div>
+                <div class="header-actions">
+                    <button class="add-new-btn">
+                        <i class="fas fa-plus"></i>
+                        <span>Add New Task</span>
+                    </button>
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">0</span>
+                        <div class="notification-dropdown">
+                            <div class="notification-header">
+                                <h3>Notifications</h3>
+                                <button class="mark-all-read">Mark all as read</button>
+                            </div>
+                            <div class="notification-list">
+                                <!-- Notifications will be loaded dynamically -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-icon completed">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Completed</h3>
+                        <div class="stat-numbers">
+                            <span class="stat-value">0</span>
+                            <span class="stat-total">/0</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon in-progress">
+                        <i class="fas fa-spinner"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>In Progress</h3>
+                        <div class="stat-numbers">
+                            <span class="stat-value">0</span>
+                            <span class="stat-total">/0</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon pending">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Pending</h3>
+                        <div class="stat-numbers">
+                            <span class="stat-value">0</span>
+                            <span class="stat-total">/0</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tasks -->
+            <div class="tasks-section">
+                <div class="section-header">
+                    <h2>Today's Tasks</h2>
+                    <div class="view-options">
+                        <button class="view-option active" data-view="list">
+                            <i class="fas fa-list"></i>
+                        </button>
+                        <button class="view-option" data-view="grid">
+                            <i class="fas fa-th-large"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="tasks-container" id="today-tasks">
+                    <!-- Tasks will be loaded dynamically -->
+                </div>
+            </div>
+
+            <div class="tasks-section">
+                <div class="section-header">
+                    <h2>Upcoming Tasks</h2>
+                    <div class="view-options">
+                        <button class="view-option active" data-view="list">
+                            <i class="fas fa-list"></i>
+                        </button>
+                        <button class="view-option" data-view="grid">
+                            <i class="fas fa-th-large"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="tasks-container" id="upcoming-tasks">
+                    <!-- Tasks will be loaded dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Task Modal -->
+    <div class="modal" id="task-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Task</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="task-form">
+                    <div class="form-group">
+                        <label for="task-title">Title</label>
+                        <input type="text" id="task-title" name="title" placeholder="Enter task title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="task-date">Due Date</label>
+                        <input type="date" id="task-date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="task-time">Time</label>
+                        <input type="time" id="task-time" name="time" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="task-priority">Priority</label>
+                        <select id="task-priority" name="priority">
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="task-description">Description</label>
+                        <textarea id="task-description" name="description" rows="3" placeholder="Enter task description"></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="cancel-btn">Cancel</button>
+                        <button type="submit" class="submit-btn">Add Task</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
